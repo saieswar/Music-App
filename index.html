@@ -54,11 +54,114 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
-            
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" data-target="#signup-modal" data-backdrop="static" data-keyboard="false">
+                Sign Up
+              </a>
+						</li>
+						<li class="nav-item">
+								<a class="nav-link" data-toggle="modal" data-target="#login-modal" data-backdrop="static" data-keyboard="false">
+									Log In
+								</a>
+							</li>
           </ul>
         </div>
       </div>
     </nav>
+<!-- The Modal -->
+<div class="modal" id="signup-modal" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Sign Up</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="" name="signup-form">
+							<div class="form-group">
+									<input type="text" name="name" id="name" placeholder="Name" class="form-control">
+							</div>
+						<div class="form-group">
+								<!-- <label for="" class="control-label">User Name</label> -->
+								<input type="text" name="email" id="email" placeholder="Email" class="form-control">
+						</div>
+						<div class="form-group">
+								<input type="text" name="phone" id="phone" placeholder="Phone" class="form-control">
+						</div>
+						<div class="form-group">
+								<input type="password" name="password" id="password" placeholder="Password" class="form-control">
+						</div>
+					
+
+
+          </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary submit-btn" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-primary submit-btn" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+	</div>
+	
+
+	<!-- The Modal -->
+<div class="modal" id="login-modal" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Log In</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="" name="signup-form">
+						<div class="form-group">
+								<!-- <label for="" class="control-label">User Name</label> -->
+								<input type="text" name="email" id="email" placeholder="Email" class="form-control">
+						</div>
+						<div class="form-group">
+								<input type="password" name="password" id="password" placeholder="Password" class="form-control">
+						</div>
+							<!-- START CAPTCHA -->
+						<!-- <br> -->
+						<div class="capbox form-group">
+							
+						<div id="CaptchaDiv"></div>
+
+						<div class="capbox-inner">
+						<!-- Type the above number:<br> -->
+
+						<input type="hidden" id="txtCaptcha">
+						<input type="text" class="form-control" name="CaptchaInput" id="CaptchaInput" onBlur="return checkform(this);" size="15" placeholder="Enter Captcha"><br>
+
+						</div>
+						</div>
+						<!-- <br><br> -->
+						<!-- END CAPTCHA -->
+
+          </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary submit-btn" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-primary submit-btn" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
 
     <!-- Page Content -->
     <div class="container">
@@ -299,6 +402,12 @@ body .player .right .bottom video {
   flex-grow: 1;
   height: 32px;
 }
+.modal-style{
+  background-color: #000;
+}
+a.nav-link{
+	cursor: pointer;
+}
 @keyframes pop-in {
   0%, 95% {
     transform: translateY(100%);
@@ -308,9 +417,70 @@ body .player .right .bottom video {
   }
 }
 
+.modal-content {
+  color: black;
+  padding: 30px;
+  max-width: 800px;
+  width: 100% !important;
+  /* background-color: #F7F7F7; */
+	/* background-image:url("m1.jpeg"); */
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+
+.submit-btn{
+	border-radius: 0px;
+	/* background-color: black;
+    border-color: #fff; */
+}
+
 /*.card {
 	background-color: #333030;
-*/}
+}*/
+
+input.form-control{
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.capbox {
+	background-color: #fff;
+	border: #fff 0px solid;
+	border-width: 0px 218px 0px 0px;
+	display: -webkit-box;
+	*display: inline; zoom: 1; /* FOR IE7-8 */
+	padding: 8px 40px 8px 8px;
+	}
+
+.capbox-inner {
+	font: bold 11px arial, sans-serif;
+	color: #000000;
+	/* background-color: #DBF3BA; */
+	margin: 5px auto 0px auto;
+	/* padding: 3px; */
+	padding-left: 21px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaDiv {
+	font: bold 17px verdana, arial, sans-serif;
+	font-style: italic;
+	color:firebrick;;
+	background-color: #FFFFFF;
+	/* padding: 4px; */
+	padding-top: 21px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaInput { margin: 1px 0px 1px 0px; width: 135px; }
 
 </style>
 
@@ -375,5 +545,61 @@ function generate() {
    }
    $(".lyrics").html(html);
    align();
+
+	 $(".submit-btn").click(function(){
+		$("#name").val("");
+		$("#email").val("");
+		$("#phone").val("");
+		 $("#password").val("");
+		 $("#CaptchaInput").val("");
+	 })
 }
 </script>
+<script type="text/javascript">
+
+	// Captcha Script
+	
+	function checkform(theform){
+	var why = "";
+	console.log(theform.value);
+	
+	if(theform.value == ""){
+	why += "Please Enter CAPTCHA Code.\n";
+	}
+	if(theform.value != ""){
+	if(ValidCaptcha(theform.value) == false){
+	why += "The CAPTCHA Code Does Not Match.\n";
+	}
+	}
+	if(why != ""){
+	alert(why);
+	return false;
+	}
+	}
+	
+	var a = Math.ceil(Math.random() * 9)+ '';
+	var b = Math.ceil(Math.random() * 9)+ '';
+	var c = Math.ceil(Math.random() * 9)+ '';
+	var d = Math.ceil(Math.random() * 9)+ '';
+	var e = Math.ceil(Math.random() * 9)+ '';
+	
+	var code = a + b + c + d + e;
+	document.getElementById("txtCaptcha").value = code;
+	document.getElementById("CaptchaDiv").innerHTML = code;
+	
+	// Validate input against the generated number
+	function ValidCaptcha(){
+	var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+	var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+	if (str1 == str2){
+	return true;
+	}else{
+	return false;
+	}
+	}
+	
+	// Remove the spaces from the entered and generated code
+	function removeSpaces(string){
+	return string.split(' ').join('');
+	}
+	</script>
